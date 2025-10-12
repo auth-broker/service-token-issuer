@@ -1,0 +1,17 @@
+services:
+  service:
+    build:
+      context: .
+
+    volumes:
+      - ./src:/package/src
+      - ./tests:/package/tests
+      - ./alembic:/package/alembic
+      - ./alembic.ini:/package/alembic.ini:ro
+      - data:/package/data
+
+    ports:
+      - "8000:80"
+
+volumes:
+  data:
