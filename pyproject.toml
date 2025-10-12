@@ -20,7 +20,7 @@ authors = [{email = "53892067+mattcoulter7@users.noreply.github.com", name = "Ma
 dependencies = [
   "ab-cache>=0.1.4",
   "ab-logging>=0.1.2",
-  "ab-token-issuer>=0.1.5",
+  "ab-token-issuer>=0.2.0",
   "fastapi>=0.115.14,<0.116",
   "pydantic[email]>=2.11.7,<3",
   "uvicorn>=0.35.0,<0.36",
