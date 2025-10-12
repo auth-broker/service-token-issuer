@@ -48,7 +48,7 @@ class AuthenticateRequest(BaseModel):
     token_issuer: TokenIssuer
 
 
-type AuthenticateRequestAnnotated = Annotated[AuthenticateRequest, Body(..., example=EXAMPLE_REQUEST)]
+AuthenticateRequestAnnotated = Annotated[AuthenticateRequest, Body(..., example=EXAMPLE_REQUEST)]
 
 
 class RefreshRequest(BaseModel):
@@ -58,4 +58,4 @@ class RefreshRequest(BaseModel):
     token_issuer: TokenIssuer
 
 
-type RefreshRequestAnnotated = Annotated[RefreshRequest, Body(..., example=EXAMPLE_REQUEST)]
+RefreshRequestAnnotated = Annotated[RefreshRequest, Body(..., example=EXAMPLE_REQUEST)]
