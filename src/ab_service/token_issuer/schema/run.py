@@ -9,7 +9,7 @@ EXAMPLE_REQUEST = {
     "token_issuer": {
         "oauth2_flow": {
             "idp_prefix": "https://wemoney.auth.ap-southeast-2.amazoncognito.com/oauth2/idpresponse",
-            "timeout": 9999999,
+            "timeout": 600000,
             "type": "IMPERSONATION",
             "impersonator": {
                 "tool": "PLAYWRIGHT_CDP_BROWSERLESS",
