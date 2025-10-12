@@ -9,7 +9,7 @@ services:
       - data:/package/data
 
     ports:
-      - "8000:80"
+      - "8003:80"
 
 volumes:
   data:
