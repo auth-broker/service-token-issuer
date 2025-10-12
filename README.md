@@ -42,10 +42,7 @@ ______________________________________________________________________
 
 ## Introduction
 
-This template repository aims to create a reusable package template which
-streamlines the creation and publishing of isolated python packages in auth-broker.
-This is aligned with the engineering vision @ auth-broker for better modularisation and
-reusability of code.
+FastAPI service for package-token-issuer, enabling data driven http execution of custom auth flows
 
 ______________________________________________________________________
 
