@@ -1,21 +1,23 @@
-# utils.py
 import asyncio
-from collections.abc import AsyncIterator, Iterator
-from typing import TypeVar
 import contextlib
+from collections.abc import AsyncGenerator, AsyncIterator, Generator, Iterator
+from typing import TypeVar
+
 from pydantic import BaseModel
 
 T = TypeVar("T")
 _SENTINEL = object()
+
+
 def async_iter_from_sync_gen(
     gen: Iterator[T],
     *,
     maxsize: int = 16,
 ) -> AsyncIterator[T]:
-    """
-    Return an async generator that streams from a sync generator
+    """Return an async generator that streams from a sync generator
     running in one background thread.
     """
+
     async def agen() -> AsyncIterator[T]:
         loop = asyncio.get_running_loop()
         q: asyncio.Queue[object] = asyncio.Queue(maxsize=maxsize)
@@ -56,7 +58,16 @@ def async_iter_from_sync_gen(
 
     return agen()
 
-def sse_lines_from_models(models: Iterator[BaseModel]) -> Iterator[str]:
+
+def sse_lines_from_models(models: Iterator[BaseModel]) -> Generator[str, None, None]:
     """Convert an async stream of BaseModels into SSE lines."""
     for m in models:
+        yield f"data: {m.model_dump_json()}\n\n"
+
+
+async def sse_lines_from_models_async(
+    models: AsyncIterator[BaseModel],
+) -> AsyncGenerator[str, None]:
+    """Convert an async stream of BaseModels into SSE lines."""
+    async for m in models:
         yield f"data: {m.model_dump_json()}\n\n"

@@ -1,17 +1,15 @@
 """User-related API routes."""
 
-from collections.abc import Iterator
 from typing import Annotated
 
-from ab_core.cache.caches.base import CacheSession
-from ab_core.cache.session_context import cache_session_sync
+from ab_core.cache.caches.base import CacheAsyncSession
+from ab_core.cache.session_context import cache_session_async
 from ab_core.token_issuer.token_issuers import TokenIssuer
 from fastapi import APIRouter, Body
 from fastapi import Depends as FDepends
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel
 
-from ab_service.token_issuer.utils import sse_lines_from_models
+from ab_service.token_issuer.utils import sse_lines_from_models_async
 
 router = APIRouter(prefix="/run", tags=["Run"])
 
@@ -53,15 +51,15 @@ EXAMPLE_REQUEST = {
 @router.post("/authenticate")
 async def authenticate(
     request: Annotated[TokenIssuer, Body(..., example=EXAMPLE_REQUEST)],
-    cache_session: Annotated["CacheSession", FDepends(cache_session_sync)],
+    cache_session: Annotated[CacheAsyncSession, FDepends(cache_session_async)],
 ):
     """Run an auth flow and stream BaseModel events as Server-Sent Events.
     `request.authenticate(...)` returns a *sync* generator yielding BaseModels.
     """
-    auth_flow = request.authenticate(cache_session=cache_session)
+    auth_flow = request.authenticate_async(cache_session=cache_session)
 
     return StreamingResponse(
-        sse_lines_from_models(auth_flow),
+        sse_lines_from_models_async(auth_flow),
         media_type="text/event-stream",
         headers={
             # Helpful for proxies/browsers

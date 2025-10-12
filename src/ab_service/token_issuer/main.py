@@ -1,11 +1,14 @@
 """Main application for the User Service."""
 
-import asyncio
-import sys
+import sys, asyncio
 
-if sys.platform.startswith("win"):
-    # this is necessary to fix an issue with playwright managing its own event loop
+# async playwright + windows with python 3.13 has some issues
+# just use docker, its a lot easier
+if sys.platform == "win32":
+    # Switch to Proactor (supports subprocess) for Playwright async driver
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
+from playwright.async_api import async_playwright
 from contextlib import asynccontextmanager
 from typing import Annotated
 
@@ -26,6 +29,10 @@ async def lifespan(
 ):
     """Lifespan context manager to handle startup and shutdown events."""
     logging_config.apply()
+    # validate playwright installation (windows)
+    if sys.platform == "win32":
+        async with async_playwright() as p:
+            _ = p.chromium
     yield
 
 
