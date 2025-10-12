@@ -22,7 +22,29 @@ async def authenticate(
     """Run an auth flow and stream BaseModel events as Server-Sent Events.
     `request.authenticate(...)` returns a *sync* generator yielding BaseModels.
     """
-    auth_flow = request.authenticate_async(cache_session=cache_session)
+    auth_flow = request.token_issuer.authenticate_async(cache_session=cache_session)
+
+    return StreamingResponse(
+        sse_lines_from_models_async(auth_flow),
+        media_type="text/event-stream",
+        headers={
+            # Helpful for proxies/browsers
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+        },
+    )
+
+
+@router.post("/refresh")
+async def refresh(
+    request: RefreshRequestAnnotated,
+    cache_session: Annotated[CacheAsyncSession, FDepends(cache_session_async)],
+):
+    """Refresh your token using the token issuer."""
+    auth_flow = request.token_issuer.refresh_async(
+        request=request.refresh_token,
+        cache_session=cache_session,
+    )
 
     return StreamingResponse(
         sse_lines_from_models_async(auth_flow),
