@@ -14,20 +14,15 @@ EXAMPLE_REQUEST = {
             "impersonator": {
                 "tool": "PLAYWRIGHT_CDP_BROWSERLESS",
                 "cdp_endpoint": "wss://browserless.matthewcoulter.dev/?stealth=true&blockAds=true&ignoreHTTPSErrors=true&timezoneId=Australia/Sydney",
-                "cdp_headers": None,
-                "cdp_timeout": None,
                 "cdp_gui_service": {"base_url": "https://browserless-gui.matthewcoulter.dev/"},
                 "browserless_service": {
                     "base_url": "https://browserless.matthewcoulter.dev/",
-                    "sessions_url": "https://browserless.matthewcoulter.dev//sessions",
-                    "ws_url_prefix": "wss://browserless.matthewcoulter.dev",
                 },
             },
         },
         "oauth2_client": {
             "config": {
                 "client_id": "247ffs2l6um22baifm5o7nhkgh",
-                "client_secret": None,
                 "redirect_uri": "https://app.wemoney.com.au/oauth_redirect",
                 "authorize_url": "https://wemoney.auth.ap-southeast-2.amazoncognito.com/oauth2/authorize",
                 "token_url": "https://wemoney.auth.ap-southeast-2.amazoncognito.com/oauth2/token",
