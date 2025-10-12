@@ -18,6 +18,7 @@ dev = [
 [project]
 authors = [{email = "53892067+mattcoulter7@users.noreply.github.com", name = "Matthew Coulter"}]
 dependencies = [
+  "ab-cache>=0.1.4",
   "ab-logging>=0.1.2",
   "ab-token-issuer>=0.1.5",
   "fastapi>=0.115.14,<0.116",

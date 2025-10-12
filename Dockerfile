@@ -7,7 +7,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV PYTHONBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     LOGGING_CONFIG_LEVEL=INFO \
-    LOGGING_CONFIG_NAMESPACES='["", "uvicorn"]'
+    LOGGING_CONFIG_NAMESPACES='["", "uvicorn"]' \
+    CACHE_TYPE=INMEMORY
 
 # Directory for package
 WORKDIR /package
