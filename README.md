@@ -124,7 +124,7 @@ command:
 **Using pip**:
 
 ```shell
-pip install ab-auth-flow-service
+pip install ab-token-issuer-service
 ```
 
 **Using UV**
@@ -135,7 +135,7 @@ provide the full url. https://github.com/astral-sh/uv/issues/10140
 Add the dependency
 
 ```shell
-uv add ab-auth-flow-service
+uv add ab-token-issuer-service
 ```
 
 **Using poetry**:
@@ -143,7 +143,7 @@ uv add ab-auth-flow-service
 Then run the following command to install the package:
 
 ```shell
-poetry add ab-auth-flow-service
+poetry add ab-token-issuer-service
 ```
 
 ### How tos
@@ -187,4 +187,4 @@ We publish to PyPI using Github releases. Steps are as follows:
    will trigger the `publish` workflow. In the Release window, type in the
    version number and it will prompt to create a new tag.
 1. Verify the release in
-   [PyPI](https://pypi.org/project/service-auth-flow/)
+   [PyPI](https://pypi.org/project/service-token-issuer/)
