@@ -1,6 +1,6 @@
 <div align="center">
 
-# Auth Flow Service
+# Token Issuer Service
 
 The template repository for creating python packages, shared across auth-broker.
 
