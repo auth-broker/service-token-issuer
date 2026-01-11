@@ -68,6 +68,16 @@
       "justMyCode": false,
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Attach (FastAPI in Docker)",
+      "type": "python",
+      "request": "attach",
+      "connect": { "host": "127.0.0.1", "port": 18003 },
+      "pathMappings": [
+        { "localRoot": "${workspaceFolder}", "remoteRoot": "/package" },
+      ],
+      "justMyCode": false
     }
   ],
   "inputs": [

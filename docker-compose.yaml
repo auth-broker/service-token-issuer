@@ -11,5 +11,39 @@ services:
     ports:
       - "8003:80"
 
+  # Use below service for running with debugpy enabled
+  # service:
+  #   build:
+  #     context: .
+  #   volumes:
+  #     - ./src:/package/src
+  #     - ./tests:/package/tests
+  #     - data:/package/data
+  #   ports:
+  #     - "8003:80"
+  #     - "18003:5678"  # debugpy    # Override the container startup to run debugpy + uvicorn
+  #   entrypoint:
+  #     - uv
+  #     - run
+  #     - python
+  #     - -Xfrozen_modules=off
+  #     - -m
+  #     - debugpy
+  #     - --listen
+  #     - 0.0.0.0:5678
+  #     - --wait-for-client
+  #     - --configure-subProcess
+  #     - "true"
+  #     - -m
+  #     - uvicorn
+  #   command:
+  #     [
+  #       "ab_service.token_issuer.main:app",
+  #       "--host", "0.0.0.0",
+  #       "--port", "80",
+  #       "--reload",
+  #       "--reload-dir", "/package/src"
+  #     ]
+
 volumes:
   data:

@@ -25,7 +25,10 @@ async def authenticate(
     auth_flow = request.token_issuer.authenticate_async(cache_session=cache_session)
 
     return StreamingResponse(
-        sse_lines_from_models_async(auth_flow),
+        sse_lines_from_models_async(
+            auth_flow,
+            expose_secrets=True,
+        ),
         media_type="text/event-stream",
         headers={
             # Helpful for proxies/browsers
@@ -47,7 +50,10 @@ async def refresh(
     )
 
     return StreamingResponse(
-        sse_lines_from_models_async(auth_flow),
+        sse_lines_from_models_async(
+            auth_flow,
+            expose_secrets=True,
+        ),
         media_type="text/event-stream",
         headers={
             # Helpful for proxies/browsers
