@@ -14,7 +14,7 @@ ENV PYTHONBUFFERED=1 \
 WORKDIR /package
 
 # Install project dependencies (ensures cache before project change)
-COPY pyproject.toml tox.ini README.md .
+COPY pyproject.toml uv.lock tox.ini README.md .
 
 # Inject a temporary .netrc from a build secret and run uv
 RUN uv sync --no-install-project

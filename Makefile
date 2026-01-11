@@ -4,7 +4,7 @@ SHELL := /bin/bash
 
 .PHONY: install ## install required dependencies on bare metal
 install:
-	uv sync
+	uv sync --refresh
 
 
 .PHONY: format ## Run the formatter on bare metal
@@ -34,12 +34,12 @@ build-docker:
 
 .PHONY: run-docker ## Runs containers with watching
 run-docker:
-	docker compose up
+	docker compose up -d
 
 
 .PHONY: test-docker ## run unit tests in docker
 test-docker:
-	docker compose run --remove-orphans --entrypoint uv package run tox -e test
+	docker compose run --remove-orphans --entrypoint uv service run tox -e test
 
 
 .PHONY: publish ## Build & publish the package to Nexus. Ensure to have UV_PUBLISH_USERNAME & UV_PUBLISH_PASSWORD environment variables set.
