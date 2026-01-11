@@ -21,16 +21,16 @@ wheels = [
 
 [[package]]
 name = "ab-auth-flow"
-version = "0.2.4"
+version = "0.2.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ab-auth-client" },
     { name = "ab-impersonation" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d9/c4/1282f166c3a6dd1d6a418fc543c9f6729131da5062d810de6630c55ec92f/ab_auth_flow-0.2.4.tar.gz", hash = "sha256:8b920fa3045311cd66de2f9e480f33c7e0b4e3b10f298c8dc179f1e9fdbfb0f6", size = 5230, upload-time = "2026-01-11T04:27:43.894Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ed/5a/357070633d339a17f69fbac523d8c049361d64ec905267b1430a722fec60/ab_auth_flow-0.2.5.tar.gz", hash = "sha256:24833fc579446737528da9342f97f2b65123add4ed489c41210da8bce12139cd", size = 5293, upload-time = "2026-01-11T05:31:54.496Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a8/81/3439a9b8b99ea2af66c0942e471a140ad52ef512c631c5686493d0674b5a/ab_auth_flow-0.2.4-py3-none-any.whl", hash = "sha256:a01efab0a60be028f47fdb8569437e2024df71da59ebf52b474c45de22adf300", size = 5695, upload-time = "2026-01-11T04:27:42.978Z" },
+    { url = "https://files.pythonhosted.org/packages/3e/f4/8a65dd57a630f87f0c748667245855263fe59911d74b6380aa074f674ae9/ab_auth_flow-0.2.5-py3-none-any.whl", hash = "sha256:e55d00d5d63e4413cb6a5d925eff1cfe16df6acfaa6fe5c604481597d484b11d", size = 5767, upload-time = "2026-01-11T05:31:55.879Z" },
 ]
 
 [[package]]
@@ -145,7 +145,7 @@ wheels = [
 
 [[package]]
 name = "ab-token-issuer"
-version = "0.2.2"
+version = "0.2.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ab-auth-client" },
@@ -156,9 +156,9 @@ dependencies = [
     { name = "uuid7" },
     { name = "yarl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/45/e8/b0da362c74ff2654cb7aec44dd6855e8f21a6d8667d8a8c805a5ec79b167/ab_token_issuer-0.2.2.tar.gz", hash = "sha256:ef635b62bb5982d635cdfefb9370be2963c952b06cab6b1ec7e600fe786e2ab8", size = 5820, upload-time = "2026-01-11T04:43:17.725Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fd/62/17a6e2e94a7f5dd1413506867aa7da9482bba883f41c6c685edd8ec2e706/ab_token_issuer-0.2.3.tar.gz", hash = "sha256:2f9f3e854773f6de64e8f12802357896b0d44424affd3baef5a2ca0be843d98b", size = 5833, upload-time = "2026-01-11T05:34:43.492Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f8/31/cad56df60c7341d5f36c219f0fe51594ad615ef41d08c5810a7d4ce06842/ab_token_issuer-0.2.2-py3-none-any.whl", hash = "sha256:46cb3e31d0b481029017c14322e867e66f70646327f3d049b9cb50eb2cde1428", size = 6619, upload-time = "2026-01-11T04:43:16.427Z" },
+    { url = "https://files.pythonhosted.org/packages/f9/3f/f115e7d3a9fbd8ec4e423be6f416991c12ba8ecdbb8c6db1194952961df1/ab_token_issuer-0.2.3-py3-none-any.whl", hash = "sha256:20fcdd30eb05ad27b3b32512982a0bcf6a4e957742244b26c002f79b7f4bf752", size = 6635, upload-time = "2026-01-11T05:34:42.21Z" },
 ]
 
 [[package]]
@@ -191,7 +191,7 @@ dev = [
 requires-dist = [
     { name = "ab-cache", specifier = ">=0.1.4,<0.2.0" },
     { name = "ab-logging", specifier = ">=0.1.2,<0.2.0" },
-    { name = "ab-token-issuer", specifier = ">=0.2.0,<0.3.0" },
+    { name = "ab-token-issuer", specifier = ">=0.2.3,<0.3.0" },
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
     { name = "pydantic", extras = ["email"], specifier = ">=2.11.7,<3" },
     { name = "uvicorn", specifier = ">=0.35.0,<0.36" },
