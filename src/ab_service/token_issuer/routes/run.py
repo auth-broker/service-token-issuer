@@ -14,7 +14,16 @@ from ab_service.token_issuer.utils import sse_lines_from_models_async
 router = APIRouter(prefix="/run", tags=["Run"])
 
 
-@router.post("/authenticate")
+@router.post(
+    "/authenticate",
+    response_class=StreamingResponse,
+    responses={
+        200: {
+            "description": "Server-Sent Events stream",
+            "content": {"text/event-stream": {"schema": {"type": "string"}}},
+        }
+    },
+)
 async def authenticate(
     request: AuthenticateRequestAnnotated,
     cache_session: Annotated[CacheAsyncSession, FDepends(cache_session_async)],
@@ -38,7 +47,16 @@ async def authenticate(
     )
 
 
-@router.post("/refresh")
+@router.post(
+    "/refresh",
+    response_class=StreamingResponse,
+    responses={
+        200: {
+            "description": "Server-Sent Events stream",
+            "content": {"text/event-stream": {"schema": {"type": "string"}}},
+        }
+    },
+)
 async def refresh(
     request: RefreshRequestAnnotated,
     cache_session: Annotated[CacheAsyncSession, FDepends(cache_session_async)],
