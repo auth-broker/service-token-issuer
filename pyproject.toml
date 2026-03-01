@@ -18,7 +18,7 @@ dev = [
 [project]
 authors = [{email = "53892067+mattcoulter7@users.noreply.github.com", name = "Matthew Coulter"}]
 dependencies = [
-  "ab-cache>=0.1.4,<0.2.0",
+  "ab-cache[all]>=0.1.4,<0.2.0",
   "ab-logging>=0.1.2,<0.2.0",
   "ab-token-issuer>=0.2.3,<0.3.0",
   "fastapi>=0.115.14,<0.116",
@@ -29,7 +29,7 @@ description = "A template package template."
 name = "ab-token-issuer-service"
 readme = "README.md"
 requires-python = ">=3.12, <4"
-version = "0.3.2"
+version = "0.3.3"
 
 [tool.hatch.build.targets.sdist]
 include = ["src/ab_service"]
